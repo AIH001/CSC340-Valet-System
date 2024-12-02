@@ -1,0 +1,23 @@
+# Ignore CLion IDE configuration files
+.idea/
+
+# Ignore CMake build files
+cmake-build-debug/
+
+# Ignore system-specific and temporary files
+*.log
+*.o
+*.bin
+*.ninja
+*.cmake
+*.json
+*.txt
+*.iml
+
+# Ignore CMake cache and API directories
+.cmake/
+
+# Ignore compiled code and temporary build files
+CMakeCache.txt
+CMakeFiles/
+build.ninja
