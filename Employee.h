@@ -4,8 +4,8 @@
 
 #ifndef CSC340_VALET_SYSTEM_EMPLOYEE_H
 #define CSC340_VALET_SYSTEM_EMPLOYEE_H
-#include <iostream>
-class Employee {
+#include "ValetCompany.h"
+class Employee : public ValetCompany{
 public:
     Employee();
     Employee(std::string name);
