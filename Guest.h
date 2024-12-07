@@ -9,7 +9,8 @@
 class Guest : public  ValetCompany {
 public:
     Guest();
-    Guest(int ticketNum);
+    Guest(std::string name);
+    Guest(int ticketNum, std::string name);
     void getCar();
     void getStatus();
 private:

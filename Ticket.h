@@ -11,6 +11,7 @@ public:
     Ticket();
     Ticket(int ticketNum);
     int getTicketNum() const;
+    void setCarDetails();
 private:
     int ticketNum;
     double price;

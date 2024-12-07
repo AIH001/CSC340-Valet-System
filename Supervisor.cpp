@@ -5,7 +5,7 @@
 #include "Supervisor.h"
 
 void Supervisor::generateTicket() {
-
+    tickets.push_back( Ticket());
 }
 
 std::vector<Ticket> Supervisor::getTickets() {
