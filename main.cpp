@@ -3,7 +3,14 @@
 //
 
 #include <iostream>
+#include <string> 
 #include <limits>
+#include "Car.h"
+#include "Employee.h"
+#include "Guest.h"
+#include "linkedlist.h"
+#include "node.h"
+#include "Ticket.h"
 
 
 using namespace std;
@@ -15,18 +22,23 @@ enum Actions{
     FIND_KEYS,
     CRASH_CAR,
     FILE_CLAIM,
+    PRINT_LOT,
+    CLOCK_OUT
 };
 
 const int MIN_MENU_OPTION = 1;  //not including QUIT, which is zero
-const int MAX_MENU_OPTION = FILE_CLAIM;
+const int MAX_MENU_OPTION = CLOCK_OUT;
 
 
 void simulation();
 int getMenuInput();
+void newCar();
+void intro();
 
 int main()
 {
-    simulation();
+    intro();
+    //simulation();
     
     int choice = getMenuInput();
     while(choice != QUIT)
@@ -34,7 +46,7 @@ int main()
         switch(choice)
         {
             case NEW_CAR:
-                cout << "Coming soon!" << endl;
+                newCar();
                 break;
             case GET_CAR:
                 cout << "Coming soon!" << endl;
@@ -46,6 +58,12 @@ int main()
                 cout << "Coming soon!" << endl;
                 break;
             case FILE_CLAIM:
+                cout << "Coming soon!" << endl;
+                break;
+            case PRINT_LOT:
+                cout << "Coming soon!" << endl;
+                break;
+            case CLOCK_OUT:
                 cout << "Coming soon!" << endl;
                 break;
             default:
@@ -90,14 +108,13 @@ int getMenuInput()
     int choice;
     while(true)
     {
-        cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
-        cout << "---------------------------------------------" << endl;
-        cout << "Options menu: \n"; 
+        cout << "Options menu: " << endl; 
         cout << " (" << NEW_CAR << ") New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
         cout << " (" << GET_CAR << ") Valet atendee runs to grab your vehicle" << endl;
         cout << " (" << FIND_KEYS << ") Finds guests' keys using binary search" << endl;
         cout << " (" << CRASH_CAR << ") Crashes guest vehicle on purpose" << endl;
         cout << " (" << FILE_CLAIM << ") Files a claim if damages to vehicle" << endl;
+        cout << " (" << CLOCK_OUT << ") Ends shift, employee clocks out" << endl;
         
         cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
 
@@ -120,3 +137,83 @@ int getMenuInput()
         }
     }
 }
+
+void newCar()
+{   
+    string name, make, model, color, licensePlate, manual, oversized, electric;
+    bool isManual, isOversized, isElectric = false;
+
+    //Guest newGuest;
+    //Car newCar;
+    //Ticket newTicket;
+
+    cout << "Enter guest name: " << endl;
+    cin >> name;
+    cout << "Enter Vehicle Make: " << endl;
+    cin >> make;
+    cout << "Enter Vehicle Model: " << endl;
+    cin >> model;
+    cout << "Enter Vehicle Color: " << endl;
+    cin >> color;
+    cout << "Enter Vehicle License Plate: " << endl;
+    cin >> licensePlate;
+
+    cout << "Is this a Manual Vehicle (Y or N): " << endl;
+    cin >> manual;
+    if(manual == "Y")
+    {
+        isManual = true;
+    }
+
+    cout << "Is this an Oversized Vehicle (Y or N): " << endl;
+    cin >> oversized;
+    if(oversized == "Y")
+    {
+        isOversized = true;
+    }
+
+    cout << "Is this an Electric Vehicle (Y or N): " << endl;
+    cin >> electric;
+    if(electric == "Y")
+    {
+        isElectric = true;
+    }
+}
+    
+
+void intro()
+{
+    int position;
+    string name;
+
+    cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << "You are an Employee here, select your position to clock in:" << endl;
+    cout << "(1) Supervisor" << endl;
+    cout << "(2) Antendee" << endl;
+
+    cin >> position;
+
+    cout << "Enter your name please: " << endl;
+    cin >> name;
+
+    
+    cout << name << ", you are clocked in as a";
+    if(position == 1)
+    { 
+        // code to create supervisor object
+        cout << " Supervisor" << endl;
+    }
+    else
+    {
+        // not a supervisor, restricted functionality
+        cout << "n Antendee" << endl;
+    }
+}
+
+
+
+
+
+    
+
