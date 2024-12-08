@@ -7,6 +7,7 @@
 #include <limits>
 #include "Car.h"
 #include "Employee.h"
+#include "Supervisor.h"
 #include "Guest.h"
 #include "linkedlist.h"
 #include "node.h"
@@ -19,8 +20,6 @@ enum Actions{
     QUIT,
     NEW_CAR,
     GET_CAR,
-    FIND_KEYS,
-    CRASH_CAR,
     FILE_CLAIM,
     PRINT_LOT,
     CLOCK_OUT
@@ -32,8 +31,12 @@ const int MAX_MENU_OPTION = CLOCK_OUT;
 
 void simulation();
 int getMenuInput();
-void newCar();
 void intro();
+void newCar();
+void getCar();
+void fileClaim();
+void printLot();
+void clockOut();
 
 int main()
 {
@@ -49,22 +52,16 @@ int main()
                 newCar();
                 break;
             case GET_CAR:
-                cout << "Coming soon!" << endl;
-                break;
-            case FIND_KEYS:
-                cout << "Coming soon!" << endl;
-                break;
-            case CRASH_CAR:
-                cout << "Coming soon!" << endl;
+                getCar();
                 break;
             case FILE_CLAIM:
-                cout << "Coming soon!" << endl;
+                fileClaim();
                 break;
             case PRINT_LOT:
-                cout << "Coming soon!" << endl;
+                printLot();
                 break;
             case CLOCK_OUT:
-                cout << "Coming soon!" << endl;
+                clockOut();
                 break;
             default:
                 cout << "Coming soon!" << endl;
@@ -109,12 +106,11 @@ int getMenuInput()
     while(true)
     {
         cout << "Options menu: " << endl; 
-        cout << " (" << NEW_CAR << ") New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
-        cout << " (" << GET_CAR << ") Valet atendee runs to grab your vehicle" << endl;
-        cout << " (" << FIND_KEYS << ") Finds guests' keys using binary search" << endl;
-        cout << " (" << CRASH_CAR << ") Crashes guest vehicle on purpose" << endl;
-        cout << " (" << FILE_CLAIM << ") Files a claim if damages to vehicle" << endl;
-        cout << " (" << CLOCK_OUT << ") Ends shift, employee clocks out" << endl;
+        cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+        cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+        cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+        cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+        cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
         
         cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
 
@@ -144,19 +140,27 @@ void newCar()
     bool isManual, isOversized, isElectric = false;
 
     //Guest newGuest;
-    //Car newCar;
+    Car newCar;
     //Ticket newTicket;
 
     cout << "Enter guest name: " << endl;
     cin >> name;
+
     cout << "Enter Vehicle Make: " << endl;
     cin >> make;
+    newCar.setMake(make);
+
     cout << "Enter Vehicle Model: " << endl;
     cin >> model;
+    newCar.setModel(model);
+
     cout << "Enter Vehicle Color: " << endl;
     cin >> color;
+    newCar.setColor(color);
+
     cout << "Enter Vehicle License Plate: " << endl;
     cin >> licensePlate;
+    newCar.setPlate(licensePlate);
 
     cout << "Is this a Manual Vehicle (Y or N): " << endl;
     cin >> manual;
@@ -196,24 +200,69 @@ void intro()
 
     cout << "Enter your name please: " << endl;
     cin >> name;
-
+    
     
     cout << name << ", you are clocked in as a";
     if(position == 1)
     { 
-        // code to create supervisor object
+        Supervisor supervisor;
         cout << " Supervisor" << endl;
     }
     else
     {
-        // not a supervisor, restricted functionality
+        Employee employee(name);
         cout << "n Antendee" << endl;
     }
 }
 
+void getCar()
+{
+    string carToBring;
+    cout << "Choose which ticket # to grab:" << endl;
+    printLot();
+    cin >> carToBring;
+    cout << "Fetching ticket # " << carToBring << endl;
+    cout << "Approximate wait time: 5 mins" << endl;
+    cout << employee.getName() << "has arrived with your vehichle: " << car.print();
+    cout << "Total time: " << 3 hours << endl;
+    cout << "Total Price: $" <<  Ticket.price() << endl;    
+}
+void fileClaim()
+{
+    string damage, carForClaim;
+    bool damageORno;
+    cout << "Is a vehicle damaged? (Y or N)" << endl;
+    cin >> damage;
+    if(damage == "Y")
+    {
+        damageORno = true;
+        cout << "Oh no!! Which vehicle is damaged?" << endl;
+        printLot();
+        cin >> carForClaim;
+        cout << "Filing a claim for " << newCar.print() << endl;
+        cout << "Claim sucessfully sent to corporate!" << endl;
+    }
+    else
+    {
+        cout << "No vehicle is damaged, no cliam to be filed" << endl;
+    }
+}
+void printLot()
+{
+    //need help with this function;
+}
+void clockOut()
+{
+    cout << "Great shift today! Clocking out..." << endl;
+    cout << "---------------------------------" << endl;
+    cout << "You parked " << " cars today!" << endl;
+    cout << "Your salary is " << employee1.getSalary() << endl;
+    cout << "You worked " << employee1.getHoursWorked() << " hours today at $" << hourlyRate() << endl;
+    cout << "You made $" << employee1.moneyMade() << endl;
+    employee1.isWorking = false;
+    cout << "Clocked out" << endl;
+}
 
 
 
-
-    
 
