@@ -76,29 +76,109 @@ int main()
 // hard coding simulation for presentation purposes
 void simulation()
 {
-    cout << "Valet System Simulation" << endl;
-    cout << "-----------------------" << endl;
-    cout << "Employee: Matthew" << endl;
-    cout << "Status: Supervisor - Clocked in" << endl;
-    cout << "-----------------------" << endl;
-    cout << "Employee: Nathan" << endl;
-    cout << "Status: Atendee - Clocked in" << endl;
-    cout << "-----------------------" << endl;
-    cout << "Guest arriving..." << endl;
-    cout << "Guest: Greg has arrived with a Black Toyota Camry (License Plate: ABC123)" << endl;
-    cout << "Ticket #14 issued." << endl;
-    cout << "-----------------------" << endl;
-    cout << "Nathan parking Ticket #14" << endl;
-    cout << "   Parked in parking spot 103" << endl;
-    cout << "-----------------------" << endl;
-    cout << "Matthew Sorting Tickets" << endl;
-    cout << "...Tickets sorted!" << endl;
-    cout << "-----------------------" << endl;
-    cout << "Guest: Greg is leaving (Ticket #14)" << endl;
-    cout << "...Nathan pulling their Black Toyota Camry (License Plate: ABC123)" << endl;
-    cout << "Total price for 3 hours: $60 USD" << endl;
-    cout << "Guest has left" << endl;
+    cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << "You are an Employee here, select your position to clock in:" << endl;
+    cout << "(1) Supervisor" << endl;
+    cout << "(2) Antendee" << endl;
+    cout << "1" << endl;
+    cout << "Enter your name please: " << endl;
+    cout << "Matthew" << endl;
+    cout << "Matthew, you are clocked in as a Supervisor"; 
+    cout << "Options menu: " << endl; 
+    cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+    cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+    cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+    cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
+    cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
+    cout << "1" << endl;
+
+    cout << "---------------------------" << endl;
+    cout << "Enter guest name: " << endl;
+    cout << "Stephen Curry" << endl;
+    cout << "Enter Vehicle Make: " << endl;
+    cout << "Porsche" << endl;
+    cout << "Enter Vehicle Model: " << endl;
+    cout << "911 GT3-RS" << endl;
+    cout << "Enter Vehicle Color: " << endl;
+    cout << "Black" << endl;
+    cout << "Enter Vehicle License Plate: " << endl;
+    cout << "THREEEE" << endl;
+    cout << "Is this a Manual Vehicle (Y or N): " << endl;
+    cout << "Y" << endl;
+    cout << "Is this an Oversized Vehicle (Y or N): " << endl;
+    cout << "N" << endl;
+    cout << "Is this an Electric Vehicle (Y or N): " << endl;
+    cout << "N" << endl;
+    cout << "Ticket #1 issued." << endl;
+    cout << "Price: $20/hr" << endl;
+    cout << "How many hours will you be valeting with us? ";
+    cout << "3" << endl;
+    cout << "Total price: $60" << endl; 
+
+    cout << "Options menu: " << endl; 
+    cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+    cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+    cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+    cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
+    cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
+    cout << "1" << endl;
+
+    cout << "---------------------------" << endl;
+    cout << "Enter guest name: " << endl;
+    cout << "Corey Carito" << endl;
+    cout << "Welcome VIP Guest" << endl;
+    cout << "Enter Vehicle Make: " << endl;
+    cout << "Audi" << endl;
+    cout << "Enter Vehicle Model: " << endl;
+    cout << "R8" << endl;
+    cout << "Enter Vehicle Color: " << endl;
+    cout << "Silver" << endl;
+    cout << "Enter Vehicle License Plate: " << endl;
+    cout << "Code4L" << endl;
+    cout << "Is this a Manual Vehicle (Y or N): " << endl;
+    cout << "N" << endl;
+    cout << "Is this an Oversized Vehicle (Y or N): " << endl;
+    cout << "N" << endl;
+    cout << "Is this an Electric Vehicle (Y or N): " << endl;
+    cout << "N" << endl;
+    cout << "Ticket #2 issued." << endl;
+    cout << "Price: $20/hr" << endl;
+    cout << "How many hours will you be valeting with us? ";
+    cout << "6" << endl;
+    cout << "Total price: $0" << endl;
+
+    cout << "Options menu: " << endl; 
+    cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+    cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+    cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+    cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
+    cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
+    cout << "4" << endl;
+
+    cout << "----------------------" << endl;
+    cout << "340 Parking Lot:" << endl;
+    cout << "----------------------" << endl;
+    cout << "Ticket #1: Black Porsche 911 GT3-RS" << endl;
+    cout << "Ticket #2: Silver Audi R8" << endl;
+    cout << "----------------------" << endl;
+
+    cout << "Options menu: " << endl; 
+    cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+    cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+    cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+    cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
+    cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
+    cout << "2" << endl;
+
+    //to be continued
+
 }
+
 
 int getMenuInput()
 {
@@ -134,14 +214,17 @@ int getMenuInput()
     }
 }
 
+
 void newCar()
 {   
     string name, make, model, color, licensePlate, manual, oversized, electric;
     bool isManual, isOversized, isElectric = false;
-
+    double hours;
     //Guest newGuest;
     Car newCar;
     //Ticket newTicket;
+
+    // want to make only Corey Carito as a VIP guest (and her valet charges are comped) 
 
     cout << "Enter guest name: " << endl;
     cin >> name;
@@ -182,6 +265,14 @@ void newCar()
     {
         isElectric = true;
     }
+    
+    cout << "Ticket #1 issued" << endl;
+    cout << "Price: $20/hr" << endl;
+    cout << "How many hours will you be valeting with us? ";
+    cin >> hours;
+    cout << "Total price: $" << (hours * 20) << endl;
+
+
 }
     
 
@@ -190,7 +281,7 @@ void intro()
     int position;
     string name;
 
-    cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
+    cout << "WELCOME TO 340 VALET!!" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "You are an Employee here, select your position to clock in:" << endl;
     cout << "(1) Supervisor" << endl;
@@ -215,6 +306,7 @@ void intro()
     }
 }
 
+
 void getCar()
 {
     string carToBring;
@@ -227,6 +319,8 @@ void getCar()
     cout << "Total time: " << 3 hours << endl;
     cout << "Total Price: $" <<  Ticket.price() << endl;    
 }
+
+
 void fileClaim()
 {
     string damage, carForClaim;
@@ -247,10 +341,14 @@ void fileClaim()
         cout << "No vehicle is damaged, no cliam to be filed" << endl;
     }
 }
+
+
 void printLot()
 {
     //need help with this function;
 }
+
+
 void clockOut()
 {
     cout << "Great shift today! Clocking out..." << endl;
@@ -262,7 +360,3 @@ void clockOut()
     employee1.isWorking = false;
     cout << "Clocked out" << endl;
 }
-
-
-
-
