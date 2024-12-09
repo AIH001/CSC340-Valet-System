@@ -36,6 +36,7 @@ private:
     void fileClaim();
     void printLot();
     void clockOut();
+    void clockIn();
     const int MIN_MENU_OPTION = 1;  //not including QUIT, which is zero
     const int MAX_MENU_OPTION = CLOCK_OUT;
 

@@ -27,12 +27,19 @@ Guest::Guest(int ticketNumber, string guestName) {
          << " and name: " << name << endl;
 }
 
-void Guest::requestCar() {
+int Guest::requestCar() {
     cout << name << " is retrieving their car with ticket number: " << ticketNum << endl;
+    return this->ticketNum;
 }
 
 void Guest::getStatus() {
     cout << name << " is checking the status of their car." << endl;
+}
+
+void Guest::print() {
+    std::cout << "Guest Name: " << this->name << std::endl;
+    std::cout << "Ticket Number: " << this->ticketNum << std::endl;
+    std::cout << "VIP Status: " << this->isVIP << std::endl;
 }
 
 

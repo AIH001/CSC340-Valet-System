@@ -80,7 +80,7 @@ void Simulation::run() {
     cout << "Price: $20/hr" << endl;
     cout << "How many hours will you be valeting with us? ";
     cout << "6" << endl;
-    cout << "Total price: $0" << endl;
+    cout << "Total price: $120" << endl;
 
     cout << "Options menu: " << endl;
     cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
@@ -100,7 +100,7 @@ void Simulation::run() {
 
     cout << "Options menu: " << endl;
     cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
-    cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet attendee runs to grab your vehicle" << endl;
     cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
     cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
     cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
@@ -312,4 +312,8 @@ void Simulation::clockOut() {
     cout << "You made $" << employee1.moneyMade() << endl;
     employee1.isWorking = false;
     cout << "Clocked out" << endl;
+}
+
+void Simulation::clockIn() {
+
 }
