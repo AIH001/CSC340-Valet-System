@@ -12,13 +12,20 @@
 class Supervisor : public Employee {
 public:
     Supervisor();
-    Supervisor(std::vector<Valet> valets);
-    Supervisor(Valet valet);
-    Supervisor(LinkedList valets);
-    Supervisor(std::vector<Ticket> tickets);
+    Supervisor(std::string name);
+    Supervisor(std::vector<Valet> valets, std::string name);
+    Supervisor(LinkedList valets, std::string name);
+    Supervisor(Valet valet, std::string name);
+    Supervisor(std::vector<Ticket> tickets, std::string name);
+
+    void setValets(std::vector<Valet> valets);
+    void setValets(LinkedList valets);
+    void addValet(Valet valet);
+    void setTickets(std::vector<Ticket> tickets);
     void customerReturn(int ticketNumber);
     void customerArrival();
     std::vector<Ticket> getTickets();
+
 private:
     int findTicket(int ticketNumber);
     int createTicketNum();

@@ -4,6 +4,27 @@
 
 #include "Supervisor.h"
 
+Supervisor::Supervisor(std::string name) : Employee(name) {}
+
+Supervisor::Supervisor(std::vector<Valet> valets, std::string name) : Employee(name) {
+
+    for (Valet v : valets) {
+        this->valets.append(v);
+    }
+}
+
+Supervisor::Supervisor(Valet valet, std::string name) : Employee(name) {
+    this->valets.append(valet);
+}
+
+Supervisor::Supervisor(LinkedList valets, std::string name) : Employee(name) {
+    this->valets = valets;
+}
+
+Supervisor::Supervisor(std::vector<Ticket> tickets, std::string name) : Employee(name) {
+    this->tickets = tickets;
+}
+
 void Supervisor::generateTicket() {
     int ticketNumber = createTicketNum();
     Ticket newTicket(ticketNumber);
@@ -65,7 +86,10 @@ void Supervisor::assignValet(Ticket ticket, bool newArrival) {
         << ticket.getTicketNum() << std::endl;
 
         if (newArrival)
+        {
             nextValet->parkCar();
+            nextValet->fillTicket();
+        }
         else
             nextValet->returnCar();
     } else {
@@ -98,22 +122,23 @@ void Supervisor::fillCustomerDetails() {
     tickets[tickets.size()-1].setGuestDetails(name, isVip);
 }
 
-Supervisor::Supervisor(std::vector<Valet> valets) {
+
+void Supervisor::setValets(std::vector<Valet> valets) {
 
     for (Valet v : valets) {
         this->valets.append(v);
     }
 }
 
-Supervisor::Supervisor(Valet valet) {
-    this->valets.append(valet);
-}
-
-Supervisor::Supervisor(LinkedList valets) {
+void Supervisor::setValets(LinkedList valets) {
     this->valets = valets;
 }
 
-Supervisor::Supervisor(std::vector<Ticket> tickets) {
+void Supervisor::addValet(Valet valet) {
+    this->valets.append(valet);
+}
+
+void Supervisor::setTickets(std::vector<Ticket> tickets) {
     this->tickets = tickets;
 }
 

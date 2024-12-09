@@ -37,3 +37,8 @@ bool Employee::getStatus() {
 void Employee::setHours(double hours) {
     this->hoursWorked = hours;
 }
+
+void Employee::print() {
+    std::cout << "Employee Details: " << this->name << std::endl
+    << "Hours Worked: " << this->hoursWorked << ""
+}

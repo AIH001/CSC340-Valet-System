@@ -10,12 +10,13 @@ public:
     Employee();
     Employee(std::string name);
     std::string getName() const;
-    double getHoursWorked;
+    double getHoursWorked();
     double getSalary();
     void clockIn();
     void clockOut();
     bool getStatus();
     void setHours(double hours);
+    void print();
 private:
     std::string name;
     double hoursWorked;
