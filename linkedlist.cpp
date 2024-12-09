@@ -15,7 +15,7 @@ LinkedList::~LinkedList() {
     }
 }
 
-void LinkedList::append(Employee value) {
+void LinkedList::append(Valet value) {
     Node* newNode = new Node(value);
     if (head == nullptr) {
         head = newNode; // If the list is empty, set head and tail to the new node
@@ -27,10 +27,25 @@ void LinkedList::append(Employee value) {
 }
 
 void LinkedList::display() const {
-    Node* current = head;
-    while (current != nullptr) {
-        std::cout << current->data << " -> ";
-        current = current->next;
+    Node* curr = head;
+    while (curr != nullptr) {
+        std::cout << curr->data << " -> ";
+        curr = curr->next;
     }
-    std::cout << "nullptr" << std::endl;
+}
+
+Valet *LinkedList::getNext() {
+    if (!head) {
+        return nullptr; // No valets in the list
+    }
+
+    if (!current) {
+        current = head; // Start from the head if current is not set
+    } else {
+        current = current->next; // Move to the next valet
+        if (!current) {
+            current = head; // Loop back to the head if at the end
+        }
+    }
+    return &current->data; // Return a pointer to the valet object
 }

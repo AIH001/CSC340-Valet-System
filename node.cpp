@@ -1,8 +1,8 @@
 // Made by William Wong 12/6/24
 
-#include "Node.h"
+#include "node.h"
 
-Node::Node(Employee value) {
+Node::Node(Valet value) {
     data = value;
     next = nullptr;
     prev = nullptr;

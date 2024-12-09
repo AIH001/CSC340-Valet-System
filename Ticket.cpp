@@ -43,5 +43,9 @@ void Ticket::setCarDetails(std::string make, std::string model, std::string colo
     cout << "Guest details set for ticket number: " << ticketNum << endl;
 }
 
+double Ticket::getPrice() {
+    return this->price;
+}
+
 
 

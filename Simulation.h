@@ -20,6 +20,7 @@ enum Actions{
     GET_CAR,
     FILE_CLAIM,
     PRINT_LOT,
+    CLOCK_IN,
     CLOCK_OUT
 };
 

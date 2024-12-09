@@ -192,6 +192,8 @@ void Simulation::manualSim() {
             case PRINT_LOT:
                 printLot();
                 break;
+            case CLOCK_IN:
+                break;
             case CLOCK_OUT:
                 clockOut();
                 break;
@@ -271,8 +273,8 @@ void Simulation::getCar() {
     cout << "Fetching ticket # " << carToBring << endl;
     cout << "Approximate wait time: 5 mins" << endl;
     cout << employee.getName() << "has arrived with your vehichle: " << car.print();
-    cout << "Total time: " << 3 hours << endl;
-    cout << "Total Price: $" <<  Ticket.price() << endl;
+    cout << "Total time: 3 hours" << endl;
+    cout << "Total Price: $" <<  Ticket.getPrice() << endl;
 }
 
 void Simulation::fileClaim() {

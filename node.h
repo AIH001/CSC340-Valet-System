@@ -2,13 +2,12 @@
 
 #ifndef NODE_H
 #define NODE_H
-#include "Employee.h"
+#include "Valet.h"
 class Node {
 public:
-    Employee data;        // Data stored in the node
+    Valet data;        // Data stored in the node
     Node* next;      // Pointer to the next node
-    Node* prev;
-    Node(Employee value); // Constructor
+    Node(Valet value); // Constructor
 };
 
 #endif // NODE_H

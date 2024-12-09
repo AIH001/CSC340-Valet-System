@@ -8,17 +8,22 @@
 #include "Ticket.h"
 #include <vector>
 #include "linkedlist.h"
+#include <chrono>
 class Supervisor : public Employee {
 public:
     Supervisor();
-    void generateTicket();
     void customerReturn(int ticketNumber);
+    void customerArrival();
     std::vector<Ticket> getTickets();
 private:
     int findTicket(int ticketNumber);
     void sortTickets();
+    void assignValet(Ticket ticket);
+    void generateTicket();
+    int createTicketNum();
     std::vector<Ticket> tickets;
     LinkedList valets;
+
 };
 
 
