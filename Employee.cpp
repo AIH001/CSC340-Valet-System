@@ -40,5 +40,5 @@ void Employee::setHours(double hours) {
 
 void Employee::print() {
     std::cout << "Employee Details: " << this->name << std::endl
-    << "Hours Worked: " << this->hoursWorked << std::endl;
+    << "Total hours Worked: " << this->hoursWorked << std::endl;
 }
