@@ -80,20 +80,25 @@ void Supervisor::customerReturn(int ticketNumber) {
 }
 
 void Supervisor::assignValet(Ticket ticket, bool newArrival) {
-    Valet* nextValet = valets.getNext(); // Get the next valet from the linked list
-    if (nextValet) {
-        std::cout << "Assigning Valet " << nextValet->getName() << "ticket #: "
-        << ticket.getTicketNum() << std::endl;
+    Valet* nextValet = nullptr;
 
-        if (newArrival)
-        {
-            nextValet->parkCar();
-            nextValet->fillTicket();
+    // Loop to find a working valet
+    do {
+        nextValet = valets.getNext();
+        if (!nextValet) {
+            std::cout << "No valets available for assignment!" << std::endl;
+            return;
         }
-        else
-            nextValet->returnCar();
+    } while (!nextValet->getStatus());
+
+    std::cout << "Assigning Valet " << nextValet->getName() << " for ticket #: "
+              << ticket.getTicketNum() << std::endl;
+
+    if (newArrival) {
+        nextValet->parkCar();
+        nextValet->fillTicket();
     } else {
-        std::cout << "No valets available for assignment!" << std::endl;
+        nextValet->returnCar();
     }
 }
 

@@ -11,11 +11,13 @@ std::string Employee::getName() const {
 Employee::Employee(std::string name) {
     this->name = name;
     this->isWorking = false;
+    this->hoursWorked = 0;
 }
 
 Employee::Employee() {
     this->name ="";
     this->isWorking = false;
+    this->hoursWorked = 0;
 }
 
 double Employee::getSalary() {
@@ -24,10 +26,21 @@ double Employee::getSalary() {
 
 void Employee::clockIn() {
     this->isWorking = true;
+    clockInTime = std::chrono::system_clock::now();
+    std::cout << "Clock-in time recorded.\n";
 }
 
 void Employee::clockOut() {
     this->isWorking = false;
+    this->clockOutTime = std::chrono::system_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::minutes>(
+            clockOutTime - clockInTime).count();
+
+    this->hoursWorked += static_cast<double>(duration);
+
+    std::cout << "Clocked out. Hours worked: " << hoursWorked << " hours.\n";
+
 }
 
 bool Employee::getStatus() {
@@ -40,5 +53,9 @@ void Employee::setHours(double hours) {
 
 void Employee::print() {
     std::cout << "Employee Details: " << this->name << std::endl
-    << "Total hours Worked: " << this->hoursWorked << std::endl;
+    << "Total Hours Worked: " << this->hoursWorked << std::endl;
+}
+
+double Employee::getHoursWorked() {
+    return hoursWorked;
 }
