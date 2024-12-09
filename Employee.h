@@ -4,7 +4,10 @@
 
 #ifndef CSC340_VALET_SYSTEM_EMPLOYEE_H
 #define CSC340_VALET_SYSTEM_EMPLOYEE_H
+
 #include "ValetCompany.h"
+#include <chrono>
+
 class Employee : public ValetCompany {
 public:
     Employee();

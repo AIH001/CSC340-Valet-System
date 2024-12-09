@@ -3,11 +3,11 @@
 //
 
 #include "Simulation.h"
+
 using namespace std;
-void Simulation::run() {
 
-    intro();
-
+void Simulation::run() 
+{
     cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "You are an Employee here, select your position to clock in:" << endl;
@@ -26,7 +26,7 @@ void Simulation::run() {
     cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
     cout << "1" << endl;
 
-    cout << "---------------------------" << endl;
+    cout << "----------NEW CAR----------" << endl;
     cout << "Enter guest name: " << endl;
     cout << "Stephen Curry" << endl;
     cout << "Enter Vehicle Make: " << endl;
@@ -58,10 +58,10 @@ void Simulation::run() {
     cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
     cout << "1" << endl;
 
-    cout << "---------------------------" << endl;
+    cout << "----------NEW CAR----------" << endl;
     cout << "Enter guest name: " << endl;
     cout << "Corey Carito" << endl;
-    cout << "Welcome VIP Guest" << endl;
+    cout << "***Welcome VIP Guest***" << endl;
     cout << "Enter Vehicle Make: " << endl;
     cout << "Audi" << endl;
     cout << "Enter Vehicle Model: " << endl;
@@ -80,7 +80,7 @@ void Simulation::run() {
     cout << "Price: $20/hr" << endl;
     cout << "How many hours will you be valeting with us? ";
     cout << "6" << endl;
-    cout << "Total price: $120" << endl;
+    cout << "Total price: $0 (VIP Guest Park for FREE!)" << endl;
 
     cout << "Options menu: " << endl;
     cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
@@ -107,11 +107,40 @@ void Simulation::run() {
     cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
     cout << "2" << endl;
 
-    //to be continued
+    cout << "Choose which ticket # to grab:" << endl;
+    cout << "----------------------" << endl;
+    cout << "340 Parking Lot:" << endl;
+    cout << "----------------------" << endl;
+    cout << "Ticket #1: Black Porsche 911 GT3-RS" << endl;
+    cout << "Ticket #2: Silver Audi R8" << endl;
+    cout << "----------------------" << endl;
+    cout << "1" << endl;
+    cout << "Fetching ticket #1" << endl;
+    cout << "Approximate wait time: 5 mins" << endl;
+    cout << "Matthew has arrived with your vehichle: Black Porsche 911 GT3-RS (License Plate: THREEEE)" << endl;
+    cout << "Total time: 3 hours" << endl;
+    cout << "Total Price: $60" << endl;
+    cout << "---PAID---" << endl;
 
+    cout << "Options menu: " << endl;
+    cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
+    cout << " (" << GET_CAR << ") GET CAR - Valet attendee runs to grab your vehicle" << endl;
+    cout << " (" << FILE_CLAIM << ") FILE CLAIM - Files a claim if damages to vehicle" << endl;
+    cout << " (" << PRINT_LOT << ") PRINT CARS - Prints out all cars in parking lot" << endl;
+    cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
+    cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
+    cout << "5" << endl;
+
+    cout << "Great shift today! Clocking out..." << endl;
+    cout << "---------------------------------" << endl;
+    cout << "You parked 2 cars today!" << endl;
+    cout << "You worked 4 hours today at $25/hr" << endl;
+    cout << "You made $100 today!" << endl;
+    cout << "---Clocked out---" << endl;
 }
 
-int Simulation::getMenuInput() {
+int Simulation::getMenuInput() 
+{
     int choice;
     while(true)
     {
@@ -144,8 +173,8 @@ int Simulation::getMenuInput() {
     }
 }
 
-void Simulation::intro() {
-
+void Simulation::intro() 
+{
     int position;
     string name;
 
@@ -174,7 +203,8 @@ void Simulation::intro() {
     }
 }
 
-void Simulation::manualSim() {
+void Simulation::manualSim() 
+{
     int choice = getMenuInput();
     while(choice != QUIT)
     {
@@ -206,16 +236,17 @@ void Simulation::manualSim() {
     cout << endl << "Thank you! Bye!" << endl;
 }
 
-void Simulation::newCar() {
+void Simulation::newCar() 
+{
     string name, make, model, color, licensePlate, manual, oversized, electric;
     bool isManual, isOversized, isElectric = false;
     double hours;
-    //Guest newGuest;
+    Guest newGuest;
     Car newCar;
     //Ticket newTicket;
 
     // want to make only Corey Carito as a VIP guest (and her valet charges are comped)
-
+    cout << "----------NEW CAR----------" << endl;
     cout << "Enter guest name: " << endl;
     cin >> name;
 
@@ -256,6 +287,7 @@ void Simulation::newCar() {
         isElectric = true;
     }
 
+    /*newGuest(ticketCounter, name);*/
     cout << "Ticket #1 issued" << endl;
     cout << "Price: $20/hr" << endl;
     cout << "How many hours will you be valeting with us? ";
@@ -265,19 +297,21 @@ void Simulation::newCar() {
 
 }
 
-void Simulation::getCar() {
+void Simulation::getCar() 
+{
     string carToBring;
     cout << "Choose which ticket # to grab:" << endl;
     printLot();
     cin >> carToBring;
     cout << "Fetching ticket # " << carToBring << endl;
     cout << "Approximate wait time: 5 mins" << endl;
-    cout << employee.getName() << "has arrived with your vehichle: " << car.print();
+    cout << /*employee.getName()*/  "has arrived with your vehichle: "  /*car.print()*/;
     cout << "Total time: 3 hours" << endl;
-    cout << "Total Price: $" <<  Ticket.getPrice() << endl;
+    cout << "Total Price: $" <<  /*Ticket.getPrice()*/  endl;
 }
 
-void Simulation::fileClaim() {
+void Simulation::fileClaim() 
+{
     string damage, carForClaim;
     bool damageORno;
     cout << "Is a vehicle damaged? (Y or N)" << endl;
@@ -288,7 +322,7 @@ void Simulation::fileClaim() {
         cout << "Oh no!! Which vehicle is damaged?" << endl;
         printLot();
         cin >> carForClaim;
-        cout << "Filing a claim for " << newCar.print() << endl;
+        cout << "Filing a claim for " << /*newCar.print() */ endl;
         cout << "Claim sucessfully sent to corporate!" << endl;
     }
     else
@@ -302,15 +336,14 @@ void Simulation::printLot() {
 
 }
 
-void Simulation::clockOut() {
-
+void Simulation::clockOut() 
+{
     cout << "Great shift today! Clocking out..." << endl;
     cout << "---------------------------------" << endl;
     cout << "You parked " << " cars today!" << endl;
-    cout << "Your salary is " << employee1.getSalary() << endl;
-    cout << "You worked " << employee1.getHoursWorked() << " hours today at $" << hourlyRate() << endl;
-    cout << "You made $" << employee1.moneyMade() << endl;
-    employee1.isWorking = false;
+    cout << "You worked " << /*employee1.getHoursWorked()*/  " hours today at $" << /*hourlyRate() */  endl;
+    cout << "You made $" << /*employee1.moneyMade() */  endl;
+    /*employee1.isWorking = false;*/
     cout << "Clocked out" << endl;
 }
 
