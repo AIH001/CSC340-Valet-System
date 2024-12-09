@@ -42,3 +42,17 @@ std::string Car::getColor() {
 std::string Car::getLicensePlate() {
     return this->licensePlate;
 }
+
+void Car::print() {
+    std::cout << "Car Make: " << this->make << std::endl;
+}
+
+Car::Car() {
+    make = "";
+     model = "";
+     color = "";
+     licensePlate = "";
+     isManual = false;
+     isOversized = false;
+     isElectric = false;
+}

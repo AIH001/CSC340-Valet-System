@@ -23,7 +23,7 @@ public:
 private:
     std::string name;
     double hoursWorked;
-    static double hourlyRate;
+    double hourlyRate;
     bool isWorking;
     decltype(std::chrono::system_clock::now()) clockInTime;
     decltype(std::chrono::system_clock::now()) clockOutTime;

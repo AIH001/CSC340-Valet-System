@@ -1,5 +1,5 @@
 // Made by William Wong 12/6/24
-#include "LinkedList.h"
+#include "linkedlist.h"
 
 LinkedList::LinkedList() {
     head = nullptr;

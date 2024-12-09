@@ -5,11 +5,14 @@
 #ifndef CSC340_VALET_SYSTEM_VALETCOMPANY_H
 #define CSC340_VALET_SYSTEM_VALETCOMPANY_H
 #include <iostream>
+
 class ValetCompany {
 private:
     std::string companyName;
 public:
-    virtual void print();
+    virtual void print() = 0;
 
 };
+
+
 #endif //CSC340_VALET_SYSTEM_VALETCOMPANY_H

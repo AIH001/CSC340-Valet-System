@@ -42,6 +42,14 @@ void Guest::print() {
     std::cout << "VIP Status: " << this->isVIP << std::endl;
 }
 
+void Guest::setName(std::string name) {
+    this->name = name;
+}
+
+void Guest::setVIP(bool vip) {
+    this->isVIP = vip;
+}
+
 
 
 

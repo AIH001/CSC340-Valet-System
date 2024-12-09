@@ -4,6 +4,8 @@
 
 #include "Employee.h"
 
+
+
 std::string Employee::getName() const {
     return this->name;
 }
@@ -12,12 +14,14 @@ Employee::Employee(std::string name) {
     this->name = name;
     this->isWorking = false;
     this->hoursWorked = 0;
+    this->hourlyRate = 25.50;
 }
 
 Employee::Employee() {
     this->name ="";
     this->isWorking = false;
     this->hoursWorked = 0;
+    this->hourlyRate = 25.50;
 }
 
 double Employee::getSalary() {

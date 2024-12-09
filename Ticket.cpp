@@ -47,5 +47,14 @@ double Ticket::getPrice() {
     return this->price;
 }
 
+void Ticket::print() {
+    std::cout << "Ticket Number: " << this->ticketNum;
+}
+
+void Ticket::setGuestDetails(std::string name, bool isVip) {
+guestDetails.setName(name);
+guestDetails.setVIP(isVip);
+}
+
 
 

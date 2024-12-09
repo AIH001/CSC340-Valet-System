@@ -14,6 +14,8 @@ public:
     int requestCar();
     void getStatus();
     void print();
+    void setName(std::string name);
+    void setVIP(bool vip);
 private:
     int ticketNum;
     std::string name;

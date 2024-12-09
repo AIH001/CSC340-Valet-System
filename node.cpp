@@ -5,5 +5,4 @@
 Node::Node(Valet value) {
     data = value;
     next = nullptr;
-    prev = nullptr;
 }
