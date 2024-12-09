@@ -12,6 +12,7 @@ public:
     Ticket(int ticketNum);
     int getTicketNum() const;
     void setCarDetails(std::string make, std::string model, std::string color, std::string licensePlate);
+    void setGuestDetails(std::string name, bool isVip);
     double getPrice();
 private:
     int ticketNum;

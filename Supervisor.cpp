@@ -46,25 +46,28 @@ void Supervisor::sortTickets() {
 
 void Supervisor::customerReturn(int ticketNumber) {
 
-// Ensure the ticket exists
+// Make sure the ticket exists
     int index = findTicket(ticketNumber);
     if (index != -1) {
         Ticket returnTicket = tickets[index];
         tickets.erase(tickets.begin() + index);
-        assignValet(returnTicket);
+        assignValet(returnTicket, false);
     } else {
         std::cout << "Ticket not found! Please file a missing car claim!" << std::endl;
     }
 
 }
 
-void Supervisor::assignValet(Ticket ticket) {
+void Supervisor::assignValet(Ticket ticket, bool newArrival) {
     Valet* nextValet = valets.getNext(); // Get the next valet from the linked list
     if (nextValet) {
-        std::cout << "Assigning Valet " << nextValet->getName() << "ticket # ..." << std::endl;
+        std::cout << "Assigning Valet " << nextValet->getName() << "ticket #: "
+        << ticket.getTicketNum() << std::endl;
 
-        // You can also perform further operations like assigning a task
-        // nextValet->parkCar(); or nextValet->returnCar();
+        if (newArrival)
+            nextValet->parkCar();
+        else
+            nextValet->returnCar();
     } else {
         std::cout << "No valets available for assignment!" << std::endl;
     }
@@ -72,16 +75,26 @@ void Supervisor::assignValet(Ticket ticket) {
 
 void Supervisor::customerArrival() {
     generateTicket();
-    assignValet(tickets[tickets.size()-1]);
+    fillCustomerDetails();
+    assignValet(tickets[tickets.size()-1], true);
 }
 
-Supervisor::Supervisor() {
-}
+Supervisor::Supervisor() {}
 
 int Supervisor::createTicketNum() {
     using namespace std::chrono;
     return duration_cast<milliseconds>(
             system_clock::now().time_since_epoch())
             .count();
+}
+
+void Supervisor::fillCustomerDetails() {
+    std::string name;
+    bool isVip = false;
+    std::cout << "Enter Guest Name: ";
+    std::getline(std::cin, name);
+    if (name == "Corey Carito")
+        isVip = true;
+    tickets[tickets.size()-1].setGuestDetails(name, isVip);
 }
 

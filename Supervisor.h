@@ -18,9 +18,10 @@ public:
 private:
     int findTicket(int ticketNumber);
     void sortTickets();
-    void assignValet(Ticket ticket);
+    void assignValet(Ticket ticket, bool newArrival);
     void generateTicket();
     int createTicketNum();
+    void fillCustomerDetails();
     std::vector<Ticket> tickets;
     LinkedList valets;
 
