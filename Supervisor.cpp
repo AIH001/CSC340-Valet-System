@@ -98,3 +98,22 @@ void Supervisor::fillCustomerDetails() {
     tickets[tickets.size()-1].setGuestDetails(name, isVip);
 }
 
+Supervisor::Supervisor(std::vector<Valet> valets) {
+
+    for (Valet v : valets) {
+        this->valets.append(v);
+    }
+}
+
+Supervisor::Supervisor(Valet valet) {
+    this->valets.append(valet);
+}
+
+Supervisor::Supervisor(LinkedList valets) {
+    this->valets = valets;
+}
+
+Supervisor::Supervisor(std::vector<Ticket> tickets) {
+    this->tickets = tickets;
+}
+
