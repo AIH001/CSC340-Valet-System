@@ -14,7 +14,7 @@ public:
     LinkedList();    // Constructor
     ~LinkedList();   // Destructor
 
-    void append(int value);  // Add a node to the end
+    void append(Employee value);  // Add a node to the end
     void display() const;    // Print the linked list
 };
 

@@ -11,7 +11,7 @@ public:
     Guest();
     Guest(std::string name);
     Guest(int ticketNum, std::string name);
-    void getCar();
+    void requestCar();
     void getStatus();
 private:
     int ticketNum;

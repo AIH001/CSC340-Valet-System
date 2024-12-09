@@ -2,7 +2,8 @@
 
 #include "Node.h"
 
-Node::Node(int value) {
+Node::Node(Employee value) {
     data = value;
     next = nullptr;
+    prev = nullptr;
 }

@@ -27,7 +27,7 @@ Guest::Guest(int ticketNumber, string guestName) {
          << " and name: " << name << endl;
 }
 
-void Guest::getCar() {
+void Guest::requestCar() {
     cout << name << " is retrieving their car with ticket number: " << ticketNum << endl;
 }
 

@@ -15,7 +15,7 @@ LinkedList::~LinkedList() {
     }
 }
 
-void LinkedList::append(int value) {
+void LinkedList::append(Employee value) {
     Node* newNode = new Node(value);
     if (head == nullptr) {
         head = newNode; // If the list is empty, set head and tail to the new node
