@@ -238,6 +238,7 @@ void Simulation::manualSim()
 
 void Simulation::newCar() 
 {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     string name, make, model, color, licensePlate, manual, oversized, electric;
     bool isManual, isOversized, isElectric = false;
     double hours;
@@ -248,22 +249,22 @@ void Simulation::newCar()
     // want to make only Corey Carito as a VIP guest (and her valet charges are comped)
     cout << "----------NEW CAR----------" << endl;
     cout << "Enter guest name: " << endl;
-    cin >> name;
+    getline(cin, name);
 
     cout << "Enter Vehicle Make: " << endl;
-    cin >> make;
+    getline(cin, make);
     newCar.setMake(make);
 
     cout << "Enter Vehicle Model: " << endl;
-    cin >> model;
+    getline(cin, model);
     newCar.setModel(model);
 
     cout << "Enter Vehicle Color: " << endl;
-    cin >> color;
+    getline(cin, color);
     newCar.setColor(color);
 
     cout << "Enter Vehicle License Plate: " << endl;
-    cin >> licensePlate;
+    getline(cin, licensePlate);
     newCar.setPlate(licensePlate);
 
     cout << "Is this a Manual Vehicle (Y or N): " << endl;
