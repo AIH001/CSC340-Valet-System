@@ -391,7 +391,7 @@ void Simulation::microDelay() {std::this_thread::sleep_for(std::chrono::millisec
 
 void Simulation::writeToScreen(std::string word) {
     for (char c : word) {
-        std::cout << c;
+        std::cout << c << std::flush;
         microDelay();
     }
     std::cout << std::endl;
