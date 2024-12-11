@@ -9,6 +9,7 @@
 class Valet : public Employee {
 public:
     Valet();
+    Valet(std::string name);
     void parkCar();
     void returnCar();
     void print() const;

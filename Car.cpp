@@ -44,7 +44,17 @@ std::string Car::getLicensePlate() {
 }
 
 void Car::print() {
+    std::cout << "Car Details" << std::endl;
+    std::cout << "-------------------------" << std::endl;
     std::cout << "Car Make: " << this->make << std::endl;
+    std::cout << "-------------------------" << std::endl;
+    std::cout << "Car Model: " << this->model << std::endl;
+    std::cout << "-------------------------" << std::endl;
+    std::cout << "Car Color: " << this->color << std::endl;
+    std::cout << "-------------------------" << std::endl;
+    std::cout << "License Plate: " << this->licensePlate << std::endl;
+    std::cout << "-------------------------" << std::endl;
+    std::cout << std::endl;
 }
 
 Car::Car() {

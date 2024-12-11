@@ -13,7 +13,9 @@
 #include "linkedlist.h"
 #include "node.h"
 #include "Ticket.h"
-
+#include <thread>
+#include <chrono>
+#include "CarLot.h"
 enum Actions{
     QUIT,
     NEW_CAR,
@@ -36,7 +38,16 @@ private:
     void fileClaim();
     void printLot();
     void clockOut();
-    void clockIn();
+    void quickDelay();
+    void longDelay();
+    void microDelay();
+    void writeToScreen(std::string word);
+    void clockIn(int position);
+
+    std::vector<Valet> workers = {};
+    std::vector<Employee> workingEmployees = {};
+    Supervisor supervisor;
+    CarLot mainLot;
     const int MIN_MENU_OPTION = 1;  //not including QUIT, which is zero
     const int MAX_MENU_OPTION = CLOCK_OUT;
 

@@ -22,6 +22,7 @@ public:
     void print();
 private:
     std::string name;
+    std::string role;
     double hoursWorked;
     double hourlyRate;
     bool isWorking;

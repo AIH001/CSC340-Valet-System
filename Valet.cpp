@@ -49,3 +49,7 @@ void Valet::fillTicket() {
 
     this->carTicket.setCarDetails(carMake, carModel, carColor, licensePlate);
 }
+
+Valet::Valet(std::string name) : Employee(name) {
+
+}

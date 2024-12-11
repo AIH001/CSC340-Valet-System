@@ -10,7 +10,7 @@ Ticket::Ticket() {
     price = 0.0;
     carDetails = Car("", "", "", "");
     guestDetails = Guest();
-    cout << "Ticket created with default values." << endl;
+
 }
 
 Ticket::Ticket(int ticketNum) {
@@ -18,7 +18,6 @@ Ticket::Ticket(int ticketNum) {
     price = 0.0;
     carDetails = Car("", "", "", "");
     guestDetails = Guest(ticketNum, "Default Guest");
-    cout << "Ticket created with ticket number: " << this->ticketNum << endl;
 }
 
 int Ticket::getTicketNum() const {
