@@ -8,7 +8,6 @@ using namespace std;
 
 void Simulation::run() 
 {
-    manualSim();
     cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "You are an Employee here, select your position to clock in:" << endl;
