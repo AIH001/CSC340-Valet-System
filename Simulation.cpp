@@ -16,7 +16,7 @@ void Simulation::run()
     cout << "1" << endl;
     cout << "Enter your name please: " << endl;
     cout << "Matthew" << endl;
-    cout << "Matthew, you are clocked in as a Supervisor";
+    cout << "Matthew, you are clocked in as a Supervisor" << endl;
     cout << "Options menu: " << endl;
     cout << " (" << NEW_CAR << ") NEW CAR - New guest arrived - get guest name, & color, make, and model of vehicle" << endl;
     cout << " (" << GET_CAR << ") GET CAR - Valet atendee runs to grab your vehicle" << endl;
@@ -137,7 +137,13 @@ void Simulation::run()
     cout << "You worked 4 hours today at $25/hr" << endl;
     cout << "You made $100 today!" << endl;
     cout << "---Clocked out---" << endl;
-}
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+    cout << " " << endl;
+ }
 
 int Simulation::getMenuInput() 
 {
