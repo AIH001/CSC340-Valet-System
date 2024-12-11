@@ -17,7 +17,6 @@ Ticket::Ticket(int ticketNum) {
     this->ticketNum = ticketNum;
     price = 0.0;
     carDetails = Car("", "", "", "");
-    guestDetails = Guest(ticketNum, "Default Guest");
 }
 
 int Ticket::getTicketNum() const {
@@ -37,9 +36,6 @@ void Ticket::setCarDetails(std::string make, std::string model, std::string colo
          << carDetails.getModel() << " (" 
          << carDetails.getColor() << "), License Plate: " 
          << carDetails.getLicensePlate() << endl;
-
-    guestDetails = Guest(ticketNum, "John Doe");
-    cout << "Guest details set for ticket number: " << ticketNum << endl;
 }
 
 double Ticket::getPrice() {
@@ -53,6 +49,24 @@ void Ticket::print() {
 void Ticket::setGuestDetails(std::string name, bool isVip) {
 guestDetails.setName(name);
 guestDetails.setVIP(isVip);
+}
+
+Car Ticket::getCarDetails() {
+    return this->carDetails;
+}
+
+Guest Ticket::getGuestDetails() {
+    return guestDetails;
+}
+
+void Ticket::setTicketNum(int ticketNum) {
+this->ticketNum = ticketNum;
+}
+
+void Ticket::setGuestDetails(std::string name, bool isVip, int ticketNum) {
+    guestDetails.setName(name);
+    guestDetails.setVIP(isVip);
+    guestDetails.setTicketNum(ticketNum);
 }
 
 

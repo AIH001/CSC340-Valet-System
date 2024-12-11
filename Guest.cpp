@@ -28,7 +28,6 @@ Guest::Guest(int ticketNumber, string guestName) {
 }
 
 int Guest::requestCar() {
-    cout << name << " is retrieving their car with ticket number: " << ticketNum << endl;
     return this->ticketNum;
 }
 
@@ -48,6 +47,14 @@ void Guest::setName(std::string name) {
 
 void Guest::setVIP(bool vip) {
     this->isVIP = vip;
+}
+
+std::string Guest::getName() {
+    return this->name;
+}
+
+void Guest::setTicketNum(int ticketNum) {
+this->ticketNum = ticketNum;
 }
 
 

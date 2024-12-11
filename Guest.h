@@ -11,11 +11,13 @@ public:
     Guest();
     Guest(std::string name);
     Guest(int ticketNum, std::string name);
+    std::string getName();
     int requestCar();
     void getStatus();
     void print();
     void setName(std::string name);
     void setVIP(bool vip);
+    void setTicketNum(int ticketNum);
 private:
     int ticketNum;
     std::string name;

@@ -25,10 +25,13 @@ Supervisor::Supervisor(std::vector<Ticket> tickets, std::string name) : Employee
     this->tickets = tickets;
 }
 
-void Supervisor::generateTicket() {
+int Supervisor::generateTicket() {
     int ticketNumber = createTicketNum();
     Ticket newTicket(ticketNumber);
+    assignValet(newTicket, true);
     tickets.push_back(newTicket);
+    sortTickets();
+    return ticketNumber;
 }
 
 std::vector<Ticket> Supervisor::getTickets() {
@@ -79,7 +82,7 @@ void Supervisor::customerReturn(int ticketNumber) {
 
 }
 
-void Supervisor::assignValet(Ticket ticket, bool newArrival) {
+void Supervisor::assignValet(Ticket &ticket, bool newArrival) {
     Valet* nextValet = nullptr;
 
     // Loop to find a working valet
@@ -96,35 +99,37 @@ void Supervisor::assignValet(Ticket ticket, bool newArrival) {
 
     if (newArrival) {
         nextValet->parkCar();
-        nextValet->fillTicket();
+        nextValet->fillTicket(ticket);
     } else {
         nextValet->returnCar();
     }
 }
 
-void Supervisor::customerArrival() {
-    generateTicket();
-    fillCustomerDetails();
-    assignValet(tickets[tickets.size()-1], true);
+int Supervisor::customerArrival() {
+    std::string name;
+    bool isVip = false;
+    std::cout << "----------NEW CAR----------" << std::endl;
+    std::cout << "Enter guest name: " << std::endl;
+    getline(std::cin, name);
+    int num = generateTicket();
+    fillCustomerDetails(name, num);
+    return num;
 }
 
 Supervisor::Supervisor() {}
 
 int Supervisor::createTicketNum() {
     using namespace std::chrono;
-    return duration_cast<milliseconds>(
+    return abs(duration_cast<milliseconds>(
             system_clock::now().time_since_epoch())
-            .count();
+            .count());
 }
 
-void Supervisor::fillCustomerDetails() {
-    std::string name;
+void Supervisor::fillCustomerDetails(std::string name, int ticketNum) {
     bool isVip = false;
-    std::cout << "Enter Guest Name: ";
-    std::getline(std::cin, name);
     if (name == "Corey Carito")
         isVip = true;
-    tickets[tickets.size()-1].setGuestDetails(name, isVip);
+    tickets[findTicket(ticketNum)].setGuestDetails(name, isVip, ticketNum);
 }
 
 
@@ -145,5 +150,9 @@ void Supervisor::addValet(Valet valet) {
 
 void Supervisor::setTickets(std::vector<Ticket> tickets) {
     this->tickets = tickets;
+}
+
+Ticket &Supervisor::getTicket(int ticketNum) {
+    return tickets[findTicket(ticketNum)];
 }
 

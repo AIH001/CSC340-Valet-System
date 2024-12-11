@@ -31,7 +31,6 @@ double Employee::getSalary() {
 void Employee::clockIn() {
     this->isWorking = true;
     clockInTime = std::chrono::system_clock::now();
-    std::cout << "Clock-in time recorded.\n";
 }
 
 void Employee::clockOut() {
@@ -62,4 +61,8 @@ void Employee::print() {
 
 double Employee::getHoursWorked() {
     return hoursWorked;
+}
+
+void Employee::setRole(std::string role) {
+this->role = role;
 }

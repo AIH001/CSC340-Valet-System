@@ -8,6 +8,7 @@ using namespace std;
 
 void Simulation::run() 
 {
+    manualSim();
     cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "You are an Employee here, select your position to clock in:" << endl;
@@ -220,7 +221,7 @@ void Simulation::intro()
     cout << "(2) Antendee" << endl;
 
     cin >> position;
-    if (workingEmployees.empty())
+    if (workingEmployees.empty() && position != 1)
     {
         std::cout << "There is no supervisor on duty. You were automatically "
                      "assigned supervisor position for this shift." << std::endl;
@@ -274,30 +275,10 @@ void Simulation::newCar()
     double hours;
     Guest newGuest;
     Car newCar;
-    //Ticket newTicket;
-
-    // want to make only Corey Carito as a VIP guest (and her valet charges are comped)
-    cout << "----------NEW CAR----------" << endl;
-    cout << "Enter guest name: " << endl;
-    getline(cin, name);
-
-    cout << "Enter Vehicle Make: " << endl;
-    getline(cin, make);
-    newCar.setMake(make);
-
-    cout << "Enter Vehicle Model: " << endl;
-    getline(cin, model);
-    newCar.setModel(model);
-
-    cout << "Enter Vehicle Color: " << endl;
-    getline(cin, color);
-    newCar.setColor(color);
-
-    cout << "Enter Vehicle License Plate: " << endl;
-    getline(cin, licensePlate);
-    newCar.setPlate(licensePlate);
-
-    mainLot.addCar(newCar);
+    int newTicketNum;
+    newTicketNum = supervisor.customerArrival();
+    guestList.push_back(supervisor.getTicket(newTicketNum).getGuestDetails());
+    mainLot.addCar(supervisor.getTicket(newTicketNum).getCarDetails());
     cout << "Is this a Manual Vehicle (Y or N): " << endl;
     cin >> manual;
     if(manual == "Y")
@@ -320,7 +301,7 @@ void Simulation::newCar()
     }
 
     /*newGuest(ticketCounter, name);*/
-    cout << "Ticket #1 issued" << endl;
+    cout << "Ticket issued" << endl;
     cout << "Price: $20/hr" << endl;
     cout << "How many hours will you be valeting with us? ";
     cin >> hours;
@@ -332,31 +313,27 @@ void Simulation::newCar()
 
 void Simulation::getCar() 
 {
-    string carToBring;
-    cout << "Choose which ticket # to grab:" << endl;
-    printLot();
-    cin >> carToBring;
-    cout << "Fetching ticket # " << carToBring << endl;
+    Ticket returnTicket = supervisor.getTicket(guestList.back().requestCar());
+    supervisor.customerReturn(returnTicket.getTicketNum());
+    cout << guestList.back().getName() << " is leaving and requests their vehicle!" << endl;
     cout << "Approximate wait time: 5 mins" << endl;
-    cout << workers[0].getName() << " has arrived with your vehicle: "  /*car.print()*/;
-    cout << "Total time: 3 hours" << endl;
-    cout << "Total Price: $" <<  /*Ticket.getPrice()*/  endl;
+    cout << workers[0].getName() << " has arrived with your vehicle: ";
+    returnTicket.getCarDetails().print();
     std::cout << endl;
+    guestList.pop_back();
 }
 
 void Simulation::fileClaim() 
 {
     string damage, carForClaim;
-    bool damageORno;
     cout << "Is a vehicle damaged? (Y or N)" << endl;
     cin >> damage;
-    if(damage == "Y")
+    if(damage == "Y" || damage == "y")
     {
-        damageORno = true;
         cout << "Oh no!! Which vehicle is damaged?" << endl;
         printLot();
         cin >> carForClaim;
-        cout << "Filing a claim for " << /*newCar.print() */ endl;
+        cout << "Filing a claim for your vehicle" << endl;
         cout << "Claim successfully sent to corporate!" << endl;
     }
     else
@@ -375,10 +352,10 @@ void Simulation::clockOut()
     cout << "Great shift today! Clocking out..." << endl;
     cout << "---------------------------------" << endl;
     cout << "You parked " << " cars today!" << endl;
-    cout << "You worked " << /*employee1.getHoursWorked()*/  " hours today at $" << /*hourlyRate() */  endl;
-    cout << "You made $" << /*employee1.moneyMade() */  endl;
-    /*employee1.isWorking = false;*/
+    cout << "You worked " << clockingOut.getHoursWorked() << " hours today at $25.50" <<  endl;
+    cout << "You made $" << clockingOut.getSalary()  << endl;
     cout << "Clocked out" << endl;
+    workingEmployees.pop_back();
 }
 
 void Simulation::clockIn(int position) {
@@ -390,18 +367,21 @@ void Simulation::clockIn(int position) {
     cout << name << ", you are clocked in as a";
     if(position == 1)
     {
-        Supervisor supervisor(name);
+        supervisor = Supervisor(name);
         supervisor.clockIn();
+        supervisor.setRole("Supervisor");
         workingEmployees.push_back(supervisor);
         cout << " Supervisor" << endl;
     }
     else
     {
         Valet valet(name);
-        workers.push_back(valet);
+        valet.setRole("Attendee");
         valet.clockIn();
+        workers.push_back(valet);
         supervisor.setValets(workers);
-        cout << "n Antendee" << endl;
+        workingEmployees.push_back(valet);
+        cout << "n Attendee" << endl;
     }
 
 }

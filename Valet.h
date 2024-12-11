@@ -13,13 +13,12 @@ public:
     void parkCar();
     void returnCar();
     void print() const;
-    void fillTicket();
+    void fillTicket(Ticket &carTicket);
     friend std::ostream& operator<<(std::ostream& os, const Valet& valet);
 
 private:
     int carParked;
     int carsReturned;
-    Ticket carTicket;
 };
 
 

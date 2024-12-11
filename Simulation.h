@@ -46,6 +46,7 @@ private:
 
     std::vector<Valet> workers = {};
     std::vector<Employee> workingEmployees = {};
+    std::vector<Guest> guestList = {};
     Supervisor supervisor;
     CarLot mainLot;
     const int MIN_MENU_OPTION = 1;  //not including QUIT, which is zero

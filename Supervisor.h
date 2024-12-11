@@ -9,6 +9,7 @@
 #include <vector>
 #include "linkedlist.h"
 #include <chrono>
+
 class Supervisor : public Employee {
 public:
     Supervisor();
@@ -23,16 +24,17 @@ public:
     void addValet(Valet valet);
     void setTickets(std::vector<Ticket> tickets);
     void customerReturn(int ticketNumber);
-    void customerArrival();
+    int customerArrival();
     std::vector<Ticket> getTickets();
+    Ticket& getTicket(int ticketNum);
 
 private:
     int findTicket(int ticketNumber);
     int createTicketNum();
     void sortTickets();
-    void assignValet(Ticket ticket, bool newArrival);
-    void generateTicket();
-    void fillCustomerDetails();
+    void assignValet(Ticket &ticket, bool newArrival);
+    int generateTicket();
+    void fillCustomerDetails(std::string name, int ticketNum);
 
     std::vector<Ticket> tickets = {};
     LinkedList valets = {};

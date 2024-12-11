@@ -20,6 +20,7 @@ public:
     bool getStatus();
     void setHours(double hours);
     void print();
+    void setRole(std::string role);
 private:
     std::string name;
     std::string role;
