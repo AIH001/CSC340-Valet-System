@@ -299,7 +299,13 @@ void Simulation::newCar()
     cout << "Price: $20/hr" << endl;
     cout << "How many hours will you be valeting with us? ";
     cin >> hours;
-    cout << "Total price: $" << (hours * 20) << endl;
+    if (isOversized) {
+        cout << "Total price: $" << (hours * 20) << endl;
+    }
+    else
+    {
+        cout << "Total price: $" << ((hours * 20) + 10) << endl;
+    }
 
 
 }
