@@ -312,6 +312,10 @@ void Simulation::newCar()
 
 void Simulation::getCar() 
 {
+    if (mainLot.lotCapacity() == 0) {
+        cout << "There are currently no cars to bring!" << endl;
+        return;
+    }
     Ticket returnTicket = supervisor.getTicket(guestList.back().requestCar());
     supervisor.customerReturn(returnTicket.getTicketNum());
     cout << guestList.back().getName() << " is leaving and requests their vehicle!" << endl;
