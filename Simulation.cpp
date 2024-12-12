@@ -8,7 +8,6 @@ using namespace std;
 
 void Simulation::run() 
 {
-    manualSim();
     cout << "WELCOME TO HOTEL 340 VALET!!" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "You are an Employee here, select your position to clock in:" << endl;
@@ -155,7 +154,7 @@ void Simulation::run()
     cout << " (" << CLOCK_OUT << ") CLOCK OUT - Ends shift, employee clocks out" << endl;
     cout << "Enter a number from " << MIN_MENU_OPTION<< " to " << MAX_MENU_OPTION << ", or 0 to exit: ";
     longDelay();
-    cout << "5" << endl;
+    cout << "6" << endl;
 
     cout << endl;
     cout << "Great shift today! Clocking out..." << endl;
