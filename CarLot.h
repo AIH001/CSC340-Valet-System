@@ -15,6 +15,7 @@ public:
     CarLot();
     void print();
     void addCar(Car car);
+    int lotCapacity();
 
 };
 

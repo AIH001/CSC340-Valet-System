@@ -1,8 +1,6 @@
 //
 //  Created by Matthew Martinez 12/5
 //
-
-#include <iostream>
 #include "Simulation.h"
 
 

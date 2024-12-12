@@ -22,3 +22,7 @@ void CarLot::addCar(Car car) {
 CarLot::CarLot() {
 
 }
+
+int CarLot::lotCapacity() {
+    return cars.size();
+}
